@@ -64,7 +64,7 @@ namespace Tripstrapstrull
             if (uus)
             {
                 Kes_on_esimene();
-                int[,] Tulemused = new int[3, 3];
+                Tulemused = new int[3, 3];
                 tulemus = -1;
                 grid3X3 = new Grid
                 {
@@ -111,23 +111,27 @@ namespace Tripstrapstrull
             {
                 tulemus = 1;
             }
-
             //teine mängija
-            else if (Tulemused[0, 0] == 0 && Tulemused[1, 0] == 0 && Tulemused[2, 0] == 0 || Tulemused[0, 1] == 0 && Tulemused[1, 1] == 0 && Tulemused[2, 1] == 0 || Tulemused[0, 2] == 0 && Tulemused[1, 2] == 0 && Tulemused[2, 2] == 0)
+            else if (Tulemused[0, 0] == 2 && Tulemused[1, 0] == 2 && Tulemused[2, 0] == 2 || Tulemused[0, 1] == 2 && Tulemused[1, 1] == 2 && Tulemused[2, 1] == 2 || Tulemused[0, 2] == 2 && Tulemused[1, 2] == 2 && Tulemused[2, 2] == 2)
             {
-                tulemus = 0;
+                tulemus = 2;
             }
-            else if (Tulemused[0, 0] == 0 && Tulemused[0, 1] == 0 && Tulemused[0, 2] == 0 || Tulemused[1, 0] == 0 && Tulemused[1, 1] == 0 && Tulemused[1, 2] == 0 || Tulemused[2, 0] == 0 && Tulemused[2, 1] == 0 && Tulemused[2, 2] == 0)
+            else if (Tulemused[0, 0] == 2 && Tulemused[0, 1] == 2 && Tulemused[0, 2] == 2 || Tulemused[1, 0] == 2 && Tulemused[1, 1] == 2 && Tulemused[1, 2] == 2 || Tulemused[2, 0] == 2 && Tulemused[2, 1] == 2 && Tulemused[2, 2] == 2)
             {
-                tulemus = 0;
+                tulemus = 2;
             }
-            else if (Tulemused[0, 0] == 0 && Tulemused[1, 1] == 0 && Tulemused[2, 2] == 0 || Tulemused[0, 2] == 0 && Tulemused[1, 1] == 0 && Tulemused[2, 0] == 0)
+            else if (Tulemused[0, 0] == 2 && Tulemused[1, 1] == 2 && Tulemused[2, 2] == 2 || Tulemused[0, 2] == 2 && Tulemused[1, 1] == 2 && Tulemused[2, 0] == 2)
             {
-                tulemus = 0;
+                tulemus = 2;
+            }
+            //viik
+            else if ()
+            {
+
             }
             else
             {
-                tulemus = -1;
+                //
             }
             return tulemus;
         }
@@ -138,9 +142,13 @@ namespace Tripstrapstrull
             {
                 DisplayAlert("Võit", "Esimene on võitja!", "Ok");
             }
-            else if (tulemus == 0)
+            else if (tulemus == 2)
             {
                 DisplayAlert("Võit", "Teine on võitja!", "Ok");
+            }
+            else if (tulemus == -1)
+            {
+                DisplayAlert("Viik", "Viik!", "Ok");
             }
             else
             {
@@ -162,7 +170,7 @@ namespace Tripstrapstrull
             {
                 b = new BoxView { BackgroundColor = Color.Red };
                 esimene = true;
-                Tulemused[r, c] = 0;
+                Tulemused[r, c] = 2;
             }
             grid3X3.Children.Add(b, c, r);
             Lopp();
