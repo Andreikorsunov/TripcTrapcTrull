@@ -124,14 +124,9 @@ namespace Tripstrapstrull
             {
                 tulemus = 2;
             }
-            //viik
-            else if ()
-            {
-
-            }
             else
             {
-                //
+                tulemus = 0;
             }
             return tulemus;
         }
@@ -146,13 +141,9 @@ namespace Tripstrapstrull
             {
                 DisplayAlert("Võit", "Teine on võitja!", "Ok");
             }
-            else if (tulemus == -1)
+            else if (tulemus == 0)
             {
                 DisplayAlert("Viik", "Viik!", "Ok");
-            }
-            else
-            {
-                //
             }
         }
         private void Tap_Tapped(object sender, EventArgs e)
